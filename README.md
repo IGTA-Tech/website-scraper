@@ -56,6 +56,35 @@ SENDGRID_API_KEY=SG.your_api_key_here
 SENDGRID_FROM_EMAIL=scraper@yourapp.com
 ```
 
+## 🚀 Deployment
+
+Want to deploy this as a web application? We've got you covered!
+
+### Quick Deploy
+
+```bash
+./deploy.sh
+```
+
+This automated script will deploy your app to Railway (backend) and Vercel (frontend) in minutes.
+
+### Manual Deployment
+
+For step-by-step instructions, see:
+- **[DEPLOYMENT_STEPS.md](DEPLOYMENT_STEPS.md)** - Comprehensive manual deployment guide
+- **[DEPLOY.md](DEPLOY.md)** - Quick reference deployment guide
+
+**Deployment Platforms:**
+- Backend: Railway (~$5/month)
+- Frontend: Vercel (Free tier)
+- Total hosting cost: ~$5/month + OpenAI API usage
+
+Once deployed, you'll have a beautiful web interface with:
+- 🎨 React frontend with real-time progress updates
+- ⚡ FastAPI backend with WebSocket support
+- 📊 Live dashboards and statistics
+- 📥 One-click report downloads
+
 ## 🎯 Usage
 
 ### Interactive Mode
