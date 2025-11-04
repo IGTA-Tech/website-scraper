@@ -4,7 +4,17 @@
       "Bash(chmod:*)",
       "Bash(gh auth:*)",
       "Bash(netlify status:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(vercel whoami:*)",
+      "Bash(python main.py:*)",
+      "Bash(gh auth status:*)",
+      "Bash(gh repo create:*)",
+      "Bash(gh repo list:*)",
+      "Bash(netlify sites:list:*)",
+      "Bash(vercel projects list:*)"
     ],
     "deny": [],
     "ask": []
