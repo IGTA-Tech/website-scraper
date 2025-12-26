@@ -3,9 +3,10 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt api/requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt -r api/requirements.txt
+# Install dependencies - copy each requirements file separately
+COPY requirements.txt ./requirements.txt
+COPY api/requirements.txt ./api-requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt -r api-requirements.txt
 
 # Copy application files
 COPY src/ ./src/
