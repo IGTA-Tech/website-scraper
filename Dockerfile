@@ -10,9 +10,9 @@ RUN pip install --no-cache-dir -r requirements.txt -r api/requirements.txt
 # Copy application files
 COPY src/ ./src/
 COPY api/ ./api/
-COPY cache/ ./cache/
-COPY output/ ./output/
-COPY .env .env
+
+# Create cache and output directories
+RUN mkdir -p cache output
 
 # Expose port
 EXPOSE 8000
