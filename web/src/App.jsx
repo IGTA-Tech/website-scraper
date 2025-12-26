@@ -1,101 +1,43 @@
-import React, { useState } from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Dashboard from './pages/Dashboard'
-import NewScrape from './pages/NewScrape'
-import Jobs from './pages/Jobs'
-import JobDetails from './pages/JobDetails'
-import Stats from './pages/Stats'
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+// Pages
+import LandingPage from './pages/LandingPage'
+import ScraperTool from './pages/ScraperTool'
+import ResultsPage from './pages/ResultsPage'
+import PricingPage from './pages/PricingPage'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
+import DashboardPage from './pages/DashboardPage'
+import SupportPage from './pages/SupportPage'
+import BlogPage from './pages/BlogPage'
+import PrivacyPage from './pages/PrivacyPage'
+import TermsPage from './pages/TermsPage'
 
 function App() {
-  const [activeTab, setActiveTab] = useState('dashboard')
-
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <header className="bg-white shadow-sm border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center py-4">
-              <div className="flex items-center space-x-3">
-                <span className="text-3xl">🕷️</span>
-                <div>
-                  <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                    Website Scraper Pro
-                  </h1>
-                  <p className="text-sm text-gray-500">AI-Powered Web Intelligence</p>
-                </div>
-              </div>
+      <Routes>
+        {/* Public Pages */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/scrape" element={<ScraperTool />} />
+        <Route path="/results/:jobId" element={<ResultsPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/support" element={<SupportPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
 
-              <nav className="flex space-x-4">
-                <Link
-                  to="/"
-                  className={`px-4 py-2 rounded-lg transition-colors ${
-                    activeTab === 'dashboard'
-                      ? 'bg-primary text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                  onClick={() => setActiveTab('dashboard')}
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  to="/scrape"
-                  className={`px-4 py-2 rounded-lg transition-colors ${
-                    activeTab === 'scrape'
-                      ? 'bg-primary text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                  onClick={() => setActiveTab('scrape')}
-                >
-                  New Scrape
-                </Link>
-                <Link
-                  to="/jobs"
-                  className={`px-4 py-2 rounded-lg transition-colors ${
-                    activeTab === 'jobs'
-                      ? 'bg-primary text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                  onClick={() => setActiveTab('jobs')}
-                >
-                  Jobs
-                </Link>
-                <Link
-                  to="/stats"
-                  className={`px-4 py-2 rounded-lg transition-colors ${
-                    activeTab === 'stats'
-                      ? 'bg-primary text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                  onClick={() => setActiveTab('stats')}
-                >
-                  Stats
-                </Link>
-              </nav>
-            </div>
-          </div>
-        </header>
+        {/* Auth Pages */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
 
-        {/* Main Content */}
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/scrape" element={<NewScrape />} />
-            <Route path="/jobs" element={<Jobs />} />
-            <Route path="/jobs/:jobId" element={<JobDetails />} />
-            <Route path="/stats" element={<Stats />} />
-          </Routes>
-        </main>
+        {/* Protected Pages */}
+        <Route path="/dashboard" element={<DashboardPage />} />
 
-        {/* Footer */}
-        <footer className="bg-white border-t border-gray-200 mt-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <p className="text-center text-gray-500 text-sm">
-              Made with ❤️ using Claude Code | Website Scraper Pro v1.0.0
-            </p>
-          </div>
-        </footer>
-      </div>
+        {/* Catch-all redirect to home */}
+        <Route path="*" element={<LandingPage />} />
+      </Routes>
     </BrowserRouter>
   )
 }
